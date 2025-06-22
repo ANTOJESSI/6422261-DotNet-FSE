@@ -5,14 +5,37 @@ using System.Text.Json;
 
 namespace InventoryApp
 {
-    public class InventoryManagement
+    public class Inventory
     {
+        private static Inventory _instance;
+        private static readonly object _lock = new object(); // For thread safety
+
         private Dictionary<int, Product> products = new Dictionary<int, Product>();
         private string filePath = "products.json";
 
-        public InventoryManagement()
+        // Constructor is private 
+        private Inventory()
         {
-            LoadFromFile(); // Load data 
+            LoadFromFile();
+        }
+
+        //  Singleton accessor
+        public static Inventory Instance
+        {
+            get
+            {
+                if (_instance == null)
+                {
+                    lock (_lock) 
+                    {
+                        if (_instance == null)
+                        {
+                            _instance = new Inventory();
+                        }
+                    }
+                }
+                return _instance;
+            }
         }
 
         public void AddProduct(Product product)
@@ -21,7 +44,7 @@ namespace InventoryApp
             {
                 products.Add(product.ProductId, product);
                 SaveToFile();
-                Console.WriteLine("Product added.");
+                Console.WriteLine(" Product added.");
             }
             else
             {
@@ -40,7 +63,7 @@ namespace InventoryApp
             }
             else
             {
-                Console.WriteLine("Product not found.");
+                Console.WriteLine(" Product not found.");
             }
         }
 
@@ -53,7 +76,7 @@ namespace InventoryApp
             }
             else
             {
-                Console.WriteLine("Product not found.");
+                Console.WriteLine(" Product not found.");
             }
         }
 
@@ -61,7 +84,7 @@ namespace InventoryApp
         {
             if (products.Count == 0)
             {
-                Console.WriteLine("📭 No products in inventory.");
+                Console.WriteLine(" No products in inventory.");
                 return;
             }
 
@@ -72,14 +95,12 @@ namespace InventoryApp
             }
         }
 
-        //  Save to JSON file
         private void SaveToFile()
         {
             string jsonString = JsonSerializer.Serialize(products);
             File.WriteAllText(filePath, jsonString);
         }
 
-        //  Load from JSON file
         private void LoadFromFile()
         {
             if (File.Exists(filePath))

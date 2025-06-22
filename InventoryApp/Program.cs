@@ -6,17 +6,18 @@ namespace InventoryApp
     {
         static void Main(string[] args)
         {
-            InventoryManagement inventory = new InventoryManagement();
+            Inventory inventory = Inventory.Instance; //the single instance
+
             while (true)
             {
-                Console.WriteLine("\n Inventory Management System");
+                Console.WriteLine("\nInventory Management System");
                 Console.WriteLine("1. Add Product");
                 Console.WriteLine("2. Update Product");
                 Console.WriteLine("3. Delete Product");
                 Console.WriteLine("4. View Products");
                 Console.WriteLine("5. Exit");
                 Console.Write("Choose an option (1-5): ");
-                
+
                 string choice = Console.ReadLine();
 
                 switch (choice)
@@ -62,7 +63,7 @@ namespace InventoryApp
                         break;
 
                     case "5":
-                        Console.WriteLine("Exiting...");
+                        Console.WriteLine(" Exiting...");
                         return;
 
                     default:

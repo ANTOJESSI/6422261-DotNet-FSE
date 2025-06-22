@@ -12,3 +12,4 @@ C:\Users\SEC\Desktop\DotNet-FSE\Week1\InventoryApp\obj\Debug\net8.0\refint\Inven
 C:\Users\SEC\Desktop\DotNet-FSE\Week1\InventoryApp\obj\Debug\net8.0\InventoryApp.pdb
 C:\Users\SEC\Desktop\DotNet-FSE\Week1\InventoryApp\obj\Debug\net8.0\InventoryApp.genruntimeconfig.cache
 C:\Users\SEC\Desktop\DotNet-FSE\Week1\InventoryApp\obj\Debug\net8.0\ref\InventoryApp.dll
+C:\Users\SEC\Desktop\DotNet-FSE\Week1\InventoryApp\obj\Debug\net8.0\InventoryApp.sourcelink.json
