@@ -9,7 +9,7 @@ namespace InventoryApp
             InventoryManagement inventory = new InventoryManagement();
             while (true)
             {
-                Console.WriteLine("\n📋 Inventory Management System");
+                Console.WriteLine("\n Inventory Management System");
                 Console.WriteLine("1. Add Product");
                 Console.WriteLine("2. Update Product");
                 Console.WriteLine("3. Delete Product");
@@ -62,11 +62,11 @@ namespace InventoryApp
                         break;
 
                     case "5":
-                        Console.WriteLine("👋 Exiting...");
+                        Console.WriteLine("Exiting...");
                         return;
 
                     default:
-                        Console.WriteLine("❌ Invalid choice.");
+                        Console.WriteLine("Invalid choice.");
                         break;
                 }
             }

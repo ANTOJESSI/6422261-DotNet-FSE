@@ -12,7 +12,7 @@ namespace InventoryApp
 
         public InventoryManagement()
         {
-            LoadFromFile(); // Load data when app starts
+            LoadFromFile(); // Load data 
         }
 
         public void AddProduct(Product product)
@@ -21,11 +21,11 @@ namespace InventoryApp
             {
                 products.Add(product.ProductId, product);
                 SaveToFile();
-                Console.WriteLine("✅ Product added.");
+                Console.WriteLine("Product added.");
             }
             else
             {
-                Console.WriteLine("⚠️ Product ID already exists.");
+                Console.WriteLine("Product ID already exists.");
             }
         }
 
@@ -36,11 +36,11 @@ namespace InventoryApp
                 products[productId].Quantity = quantity;
                 products[productId].Price = price;
                 SaveToFile();
-                Console.WriteLine("✅ Product updated.");
+                Console.WriteLine("Product updated.");
             }
             else
             {
-                Console.WriteLine("❌ Product not found.");
+                Console.WriteLine("Product not found.");
             }
         }
 
@@ -49,11 +49,11 @@ namespace InventoryApp
             if (products.Remove(productId))
             {
                 SaveToFile();
-                Console.WriteLine("✅ Product deleted.");
+                Console.WriteLine("Product deleted.");
             }
             else
             {
-                Console.WriteLine("❌ Product not found.");
+                Console.WriteLine("Product not found.");
             }
         }
 
@@ -65,21 +65,21 @@ namespace InventoryApp
                 return;
             }
 
-            Console.WriteLine("\n📦 Inventory List:");
+            Console.WriteLine("\n Inventory List:");
             foreach (var product in products.Values)
             {
                 Console.WriteLine(product);
             }
         }
 
-        // 🧠 Save to JSON file
+        //  Save to JSON file
         private void SaveToFile()
         {
             string jsonString = JsonSerializer.Serialize(products);
             File.WriteAllText(filePath, jsonString);
         }
 
-        // 🧠 Load from JSON file
+        //  Load from JSON file
         private void LoadFromFile()
         {
             if (File.Exists(filePath))
